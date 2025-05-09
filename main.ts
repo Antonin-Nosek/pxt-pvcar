@@ -1,4 +1,4 @@
-radio.setGroup(1);
+ radio.setGroup(1);
 
 let x: number = 0;
 let y: number = 0;
@@ -20,17 +20,17 @@ radio.onReceivedString(function (string){
 })
 
 function controlServo(xTilt: number, yTilt: number) {
-    let speed = Math.map( yTilt, -1023, 1023, -200, 200)
+    let speed = Math.map( yTilt, -1023, 1023, -255, 255)
     speed = Math.constrain(speed, 0, 200);
 
-    let turn = Math.map(xTilt, -1023, 1023, -200, 200)
+    let turn = Math.map(xTilt, -1023, 1023, -255, 255)
     turn = Math.constrain(turn, 0, 200);
 
    
     if (yTilt < -10) {
         //forward, right/left
-        PCAmotor.MotorRun(PCAmotor.Motors.M4, (yTilt + (xTilt/2)))
-        PCAmotor.MotorRun(PCAmotor.Motors.M1, (yTilt - (xTilt/2)))
+        PCAmotor.MotorRun(PCAmotor.Motors.M4, (yTilt + (xTilt/3)))
+        PCAmotor.MotorRun(PCAmotor.Motors.M1, (yTilt - (xTilt/3)))
     } else if (yTilt > 10) {
         //backward
         PCAmotor.MotorRun(PCAmotor.Motors.M1, yTilt)
