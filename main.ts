@@ -28,7 +28,7 @@ function controlServo(xTilt: number, yTilt: number) {
 
    
     if (yTilt < -10) {
-        //forward
+        //forward, right/left
         PCAmotor.MotorRun(PCAmotor.Motors.M4, (yTilt + (xTilt/2)))
         PCAmotor.MotorRun(PCAmotor.Motors.M1, (yTilt - (xTilt/2)))
     } else if (yTilt > 10) {
@@ -48,5 +48,6 @@ function controlServo(xTilt: number, yTilt: number) {
         // Turn Right
         PCAmotor.MotorRun(PCAmotor.Motors.M1, xTilt)
         PCAmotor.MotorRun(PCAmotor.Motors.M4, (xTilt - 50))
-    }*/
+    }
+*/ // celkem nefunkcni zataceni
 }
